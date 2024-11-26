@@ -1,8 +1,14 @@
-
+import AddToCart from "./AddToCart"
+import styles from './ProductCard.module.css';
 
 const ProductCard = () => {
   return (
-    <button onClick={() => console.log('Clicked')}>Add to Cart</button>
+    <>
+    <div >
+    <AddToCart/>
+
+    </div>
+    </>
   )
 }
 

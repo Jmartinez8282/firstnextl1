@@ -1,8 +1,19 @@
+import UserTable from "./UserTable"
 
 
-const UsersPage= () => {
+
+
+const UsersPage = async () => {
+
+  
+
   return (
-    <div>UsersPage</div>
+    <>
+    <h1>Users</h1>
+    <UserTable/>
+  
+    </>
+
   )
 }
 
