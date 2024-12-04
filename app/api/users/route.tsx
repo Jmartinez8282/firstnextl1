@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import schema from "./schema";
+import prisma from "@/prisma/client";
+
 
 //GET getting data
 //POST Creating data
@@ -7,13 +9,11 @@ import schema from "./schema";
 //DELETE deleting data
 
 
-export function GET(request: NextRequest) {
+export async function GET(request: NextRequest) {
     //fetch users from a data base
+    const users = await prisma.user.findMany()
     //hard code our data
-    return NextResponse.json([
-        {id: 1, name: 'Jose'},
-        {id: 2, name: 'Jacob'},
-    ])
+    return NextResponse.json(users)
 }
 
 export async function POST(request: NextRequest) {
