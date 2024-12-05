@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import schema from "./schema";
 import prisma from "@/prisma/client";
+import { Prisma } from "@prisma/client";
 
 
 //GET getting data
@@ -24,8 +25,15 @@ export async function POST(request: NextRequest) {
      const validation = schema.safeParse(body)
      if(!validation.success)
         return NextResponse.json(validation.error.errors,{status: 400})
+       const user = await prisma.user.create({
+            data: {
+                name: body.name,
+                email: body.email,
+            }
+        })
+     
      //Else, return the data that was created
-     return NextResponse.json({id: 1, name: body.name},{status: 201})
+     return NextResponse.json(user,{status: 201})
      
 
 }
