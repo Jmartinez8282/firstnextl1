@@ -10,7 +10,7 @@ import prisma from "@/prisma/client";
 //DELETE deleting data
 
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     //fetch users from a data base
     const users = await prisma.user.findMany()
     //hard code our data

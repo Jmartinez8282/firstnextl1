@@ -1,6 +1,6 @@
 import Link from "next/link"
 import UserTable from "./UserTable"
-import { Suspense } from "react"
+
 
 interface Props {
   searchParams: {sortOrder: string}

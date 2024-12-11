@@ -24,7 +24,7 @@ export const authOptions:NextAuthOptions = {
               email: { label: "Email", type: "email", placeholder: "Email" },
               password: { label: "Password", type: "password",placeholder:'Password' }
             },
-            async authorize(credentials, req) {
+            async authorize(credentials) {
             
               if(!credentials?.email || !credentials?.password) return null;
               // Add logic here to look up the user from the credentials supplied
@@ -46,15 +46,7 @@ export const authOptions:NextAuthOptions = {
             session: {
               strategy:'jwt'
             },
-            callbacks: {
-        async signIn({ user, account, profile }) {
-          if (account?.provider === 'google') {
-            // Allow sign-in
-            return true;
-          }
-          return false;
-        },
-      }
+            
     }
 const handler = NextAuth(authOptions);
 
